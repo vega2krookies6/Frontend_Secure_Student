@@ -1,0 +1,32 @@
+/* ---------------------------------------------------------
+   page.css — 없는 주소 안내 페이지
+   style.css 에서 옮겨 온 것입니다. 내용은 한 줄도 고치지 않았습니다.
+   --------------------------------------------------------- */
+
+/* 없는 주소 안내 */
+.not-found {
+    max-width: 600px;
+    margin: 60px auto;
+    padding: 40px 20px;
+    text-align: center;
+    background-color: var(--bg-surface);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+}
+
+.not-found h2 {
+    color: var(--color-danger);
+}
+
+/* 폼 페이지 위쪽의 "목록으로 돌아가기" 링크 */
+.back-link {
+    display: inline-block;
+    margin-bottom: 12px;
+    color: var(--color-primary);
+    text-decoration: none;
+    font-size: 0.9em;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}

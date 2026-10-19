@@ -1,0 +1,102 @@
+/* ---------------------------------------------------------
+   layout.css — 머리말 · 내비게이션 · 페이지 바깥틀
+   style.css 에서 옮겨 온 것입니다. 내용은 한 줄도 고치지 않았습니다.
+   --------------------------------------------------------- */
+
+/* 어느 페이지에서나 보이는 머리말 */
+.app-header {
+    display: flex;
+    /* 제목과 버튼을 한 줄에 */
+    justify-content: space-between;
+    /* 제목은 왼쪽, 버튼은 오른쪽 */
+    align-items: center;
+    /* 세로 가운데 맞춤 */
+    max-width: 1200px;
+    margin: 0 auto 20px;
+    padding: 16px 20px;
+    border-bottom: 2px solid var(--border-soft);
+}
+
+/* 제목과 모드 배지를 한 덩어리로 묶는다.
+   머리말이 space-between 이라 자식이 둘이어야 배치가 유지된다. */
+.app-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* 머리말의 제목 — Link 이지만 제목처럼 보이게 한다 */
+.app-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: var(--text-title);
+    text-decoration: none;
+    /* 링크 밑줄 제거 */
+}
+
+.app-title:hover {
+    color: var(--color-primary-dark);
+}
+
+/* 머리말의 내비게이션 — 링크 두 개를 나란히 */
+.app-nav {
+    display: flex;
+    gap: 8px;
+    /* 링크 사이 간격 */
+}
+
+/* 내비게이션 링크 공통 */
+.nav-link {
+    padding: 8px 16px;
+    border-radius: 4px;
+    color: var(--text-nav);
+    text-decoration: none;
+    font-size: 0.95em;
+    transition: background-color 0.15s;
+}
+
+.nav-link:hover {
+    background-color: var(--bg-hover);
+}
+
+/* 지금 보고 있는 페이지의 링크 — NavLink 가 active 클래스를 붙여 준다 */
+.nav-link.active {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+.nav-link.active:hover {
+    background-color: var(--color-primary-dark);
+}
+
+/* 각 페이지의 본문을 감싸는 상자 */
+.page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px 40px;
+}
+
+/* ── 9부에서 더한 것 ─────────────────────────────────────
+
+   목록 제목과 "등록" 버튼을 한 줄에 놓는다.
+
+   지금까지는 제목만 있어서 자리를 잡을 것이 없었다. 이제 오른쪽에
+   버튼이 붙는데, 그 버튼이 관리자에게만 보인다. 일반 사용자에게는
+   자식이 하나뿐이 되지만 space-between 은 그때도 제 자리를 지킨다.  */
+.list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+}
+
+/* h2 는 기본 margin 이 커서 버튼과 높이가 어긋난다.
+   .list-header 안에서만 여백을 없앤다.
+
+   너비는 건드리지 않는다. flex 항목은 내용만큼만 넓어지므로,
+   h2 의 파란 밑줄이 제목 글자 아래에만 그어진다. 바깥에서처럼
+   block 이었다면 밑줄이 버튼 앞까지 길게 늘어났을 것이다. */
+.list-header h2 {
+    margin-top: 0;
+    margin-bottom: 0;
+}

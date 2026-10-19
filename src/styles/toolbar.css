@@ -1,0 +1,101 @@
+/* ---------------------------------------------------------
+   toolbar.css — 목록 위아래의 조작 영역
+
+   검색바와 쪽 넘기기를 담습니다. 둘 다 "목록을 어떻게 볼 것인가" 를
+   정하는 것이라 한 파일에 두었습니다.
+
+   표 자체(table.css)와 나눈 까닭은 쓰임이 다르기 때문입니다.
+   학과 목록에는 검색이 없지만 쪽 넘기기는 있습니다. 표는 둘 다 씁니다.
+   --------------------------------------------------------- */
+
+/* ── 검색바 ──────────────────────────────────────────── */
+
+/* 검색바는 <form> 이다. 그래서 base.css 의 form 규칙이 이미 걸려 있다.
+     background-color: white / padding: 20px / border-radius / margin-bottom: 20px
+
+   바탕과 둥근 모서리는 그대로 쓰고, 여백만 줄인다. 폼은 입력칸이 여럿이라
+   20px 가 알맞지만 검색바는 한 줄뿐이라 그만큼이 필요 없다.
+   box-shadow 는 form 규칙에 없으므로 여기서 더한다. */
+.search-bar {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    /* 좁은 화면에서 줄바꿈을 허용한다 */
+    gap: 8px;
+
+    padding: 16px;
+    margin-bottom: 16px;
+    box-shadow: var(--shadow);
+}
+
+/* 입력칸은 남는 자리를 전부 차지한다.
+
+   base.css 의 input 은 width: 100% 에 margin-bottom: 15px 이다.
+   그대로 두면 검색바 한 줄을 혼자 차지하고 아래에 빈 공간이 생긴다.
+   flex 안에서는 width 대신 flex 로 너비를 정한다. */
+.search-input {
+    flex: 1;
+    min-width: 180px;
+    /* 이보다 좁아지면 줄을 바꾼다 */
+    margin-bottom: 0;
+    /* base.css 의 15px 를 지운다 */
+}
+
+/* 검색 규칙 안내 — 눈에 띄지 않게, 그러나 읽을 수는 있게 */
+.search-hint {
+    font-size: 0.8em;
+    color: var(--text-faint);
+}
+
+/* ── 건수 표시 ───────────────────────────────────────── */
+
+.list-count {
+    margin: 0 0 8px;
+    font-size: 0.9em;
+    color: var(--text-muted);
+}
+
+/* ── 쪽 넘기기 ───────────────────────────────────────── */
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 4px;
+
+    margin-top: 16px;
+}
+
+.page-btn {
+    min-width: 38px;
+    padding: 7px 12px;
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    background-color: var(--bg-surface);
+    color: var(--text-nav);
+
+    cursor: pointer;
+    font-size: 0.9em;
+    line-height: 1.2;
+}
+
+.page-btn:hover:not(:disabled) {
+    background-color: var(--bg-hover);
+}
+
+/* 지금 보고 있는 쪽 — 내비게이션의 active 링크와 같은 색을 쓴다.
+   "지금 여기" 를 나타내는 색이 화면마다 다르면 익히기 어렵다. */
+.page-btn.current {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+    color: white;
+    font-weight: bold;
+}
+
+/* 첫 쪽에서 "이전", 끝 쪽에서 "다음" — 눌러도 소용없음을 보인다.
+   disabled 를 주는 것만으로는 화면이 그대로라 눌리는 줄 안다. */
+.page-btn:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}

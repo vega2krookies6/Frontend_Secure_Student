@@ -1,0 +1,29 @@
+/* ---------------------------------------------------------
+   style.css — 나뉜 스타일 파일들을 한데 불러온다
+
+   App.jsx 는 이 파일 하나만 import 합니다.
+
+   차례가 뜻을 갖습니다. 뒤에 온 것이 앞의 것을 덮어씁니다.
+   base 가 앞이어야 하는 까닭이 그것입니다. 예를 들어
+   .btn 의 파란 바탕(base)을 .cancel-btn 의 회색(form)이 덮어씁니다.
+   차례를 바꾸면 취소 버튼이 파랗게 됩니다.
+
+   9부에서 두 줄이 늘었습니다.
+     auth      로그인 · 사용자 표시 · 권한 안내
+     toolbar   검색바 · 쪽 넘기기
+   --------------------------------------------------------- */
+
+/* tokens 가 맨 앞이어야 한다. 뒤의 파일들이 var(--이름) 으로 꺼내 쓰기 때문이다. */
+@import "./styles/tokens.css";
+
+@import "./styles/base.css";
+@import "./styles/layout.css";
+@import "./styles/form.css";
+@import "./styles/table.css";
+@import "./styles/toolbar.css";
+@import "./styles/message.css";
+@import "./styles/auth.css";
+@import "./styles/page.css";
+
+/* 맨 마지막 — 좁은 화면에서만 앞의 규칙을 덮어쓴다 */
+@import "./styles/responsive.css";

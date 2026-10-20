@@ -16,6 +16,9 @@
     "react-router-dom": "^7.18.3",
     "zustand": "^5.0.15"
   },
+  "overrides": {
+    "source-map-js": "^1.2.2"
+  },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "@types/react": "^19.2.18",
